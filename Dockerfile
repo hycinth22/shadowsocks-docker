@@ -11,9 +11,6 @@ RUN apt-get update && \
 # Shadowsocks will be saved /etc/shadowsocks
 RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git /etc/shadowsocks
 
-# Turn on fast open temporarily
-RUN echo 3 > /proc/sys/net/ipv4/tcp_fastopen
-
 # Optimizing shadowsocks
 ADD 60-shadowsocks.conf /etc/sysctl.d/60-shadowsocks.conf
 RUN sysctl --system
