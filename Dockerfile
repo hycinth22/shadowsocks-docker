@@ -22,7 +22,7 @@ RUN sysctl --system
 ADD shadowsocks.json /etc/shadowsocks.json
 
 # Please modify this if you chanaged shadowsocks server port
-EXPOSE 443
+EXPOSE 34780
 
 # Startup single-user version
 CMD ["/etc/shadowsocks/shadowsocks/server.py","-c","/etc/shadowsocks.json"]
