@@ -2,25 +2,51 @@
 
 set -e
 
-if [ -n $1 ]; then
-    ss_dir=$1
-else
-    ss_dir="/shadowsocks"
-fi
-if [ -n $2 ]; then
-    config_file=$2
-else
-    config_file="/etc/shadowsocks.json"
-fi
+# default option
+ss_dir="/shadowsocks"
+config_file="/etc/shadowsocks.json"
 
-if [ -n $server_port ]; then
-    sed -e 's/^;"server_port":\d+/"server_port":'$server_port'/' -i $config_file
-fi
-if [ -n $password ]; then
-    sed -e 's/^;"password":".*"/"password":"'$server_port'"/' -i $config_file
-fi
-if [ -n $method ]; then
-    sed -e 's/^;"method":".*"/"method":"'$method'"/' -i $config_file
-fi
+# changeConf(name, val)
+changeConf() {
+    echo "Modify configuration [$1] to [$2]"
+    sed -e 's/\(\s*"'$1'"\s*:\s*\).*\(\s*[,|$]\)/\1'$2'\2/' -i $config_file
+}
+
+# changeConf_str(name, str)
+changeConf_str() {
+    changeConf $1 '"'$2'"'
+}
+
+# parse arguments
+while getopts "d:c:p:k:m:t:o:w:" arg
+do
+        case $arg in
+             d) ss_dir=$OPTARG
+                ;;
+             c) config_file=$OPTARG
+                ;;
+             p) server_port=$OPTARG
+                changeConf 'server_port' $server_port
+                ;;
+             k) password=$OPTARG
+                changeConf_str 'password' $password
+                ;;
+             m) method=$OPTARG
+                changeConf_str 'method' $method
+                ;;
+             t) timeout=$OPTARG
+                changeConf 'timeout' $timeout
+                ;;
+             o) obfs=$OPTARG
+                changeConf_str 'obfs' $obfs
+                ;;
+             w) workers=$OPTARG
+                changeConf 'workers' $workers
+                ;;
+             ?)
+                echo "unkonwn argument"
+                exit 1
+        esac
+done
 
 python $ss_dir/shadowsocks/server.py -c $config_file

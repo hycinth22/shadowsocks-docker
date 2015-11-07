@@ -30,4 +30,4 @@ RUN chmod +x /entrypoint.sh
 EXPOSE 34780
 
 # Startup single-user version
-ENTRYPOINT /entrypoint.sh $SS_DIR $SS_CONFIG
+ENTRYPOINT /entrypoint.sh -d $SS_DIR -c $SS_CONFIG $EXT_PARMS
