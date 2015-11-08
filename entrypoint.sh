@@ -43,6 +43,8 @@ do
              w) workers=$OPTARG
                 changeConf 'workers' $workers
                 ;;
+             e) cmds=$OPTARG
+                ;;
              ?)
                 echo "unkonwn argument"
                 exit 1
