@@ -1,27 +1,27 @@
 # Build breakwa11/shadowsocks from github source
 # single-user version
 
-FROM ubuntu:14.04.3
+FROM tutum/ubuntu:trusty
 
 MAINTAINER aprikyblue <aprikyblue@gmail.com>
 
 RUN apt-get update && \
     apt-get install -y wget m2crypto git python2.7-minimal
 
-# Shadowsocks will be saved to /shadowsocks
-RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git /shadowsocks/
-RUN chmod -R +x /shadowsocks/
-
 # Optimizing shadowsocks
 COPY 60-shadowsocks.conf /etc/sysctl.d/60-shadowsocks.conf
 RUN sysctl --system
 
-# Copy configuration file
-COPY shadowsocks.json /etc/shadowsocks.json
-
 # Copy entrypoint file
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
+
+# Copy configuration file
+COPY shadowsocks.json /etc/shadowsocks.json
+
+# Shadowsocks will be saved to /shadowsocks
+RUN git clone -b manyuser https://github.com/breakwa11/shadowsocks.git /shadowsocks/
+RUN chmod -R +x /shadowsocks/
 
 # Download ServerSpeeder Installer
 RUN mkdir /tmp/serverSpeeder/
@@ -30,7 +30,7 @@ RUN tar xzvf /tmp/serverSpeeder/serverSpeederInstaller.tar.gz
 RUN chmod -R +x /tmp/serverSpeeder/
 
 # Default Port
-EXPOSE 34780
+EXPOSE 34780 22
 
 # Startup single-user version
-CMD /entrypoint.sh $EXT_PARMS 
+CMD /run.sh && /entrypoint.sh $EXT_PARMS 

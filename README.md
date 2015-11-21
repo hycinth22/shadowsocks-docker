@@ -11,9 +11,9 @@ A docker image of breakwa11/shadowsocks, based on Ubuntu 14.04
   + -t <timeout>        shadowsocks timeout seconds, default: 300
   + -o <obfs>           shadowsocks timeout seconds, default: plain
   + -w <workers>        shadowsocks timeout seconds, default: 1
-+ `EXT_CMD`: execute its value as bash command after shadowsocks startup.
++ ~~`EXT_CMD`: execute its value as bash command after shadowsocks startup.~~
 
-If you want to use *chacha20* encrypt method, please install [*libsodium*](https://download.libsodium.org/libsodium/releases/) by `EXT_CMDS`
+If you want to use *chacha20* encrypt method, please install [*libsodium*](https://download.libsodium.org/libsodium/releases/) ~~by `EXT_CMDS`~~
 
 
 # About serverSpeeder
