@@ -33,4 +33,4 @@ RUN chmod -R +x /tmp/serverSpeeder/
 EXPOSE 34780 22
 
 # Startup single-user version
-CMD /run.sh && /entrypoint.sh $EXT_PARMS 
+CMD /entrypoint.sh $EXT_PARMS 

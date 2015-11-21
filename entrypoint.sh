@@ -51,4 +51,7 @@ do
         esac
 done
 
+# startup ssh daemon
+/run.sh &
+
 python $ss_dir/shadowsocks/server.py -c $config_file
