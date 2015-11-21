@@ -26,7 +26,7 @@ RUN chmod -R +x /shadowsocks/
 # Download ServerSpeeder Installer
 RUN mkdir /tmp/serverSpeeder/
 RUN wget -P /tmp/serverSpeeder/ http://my.serverspeeder.com/d/ls/serverSpeederInstaller.tar.gz
-RUN tar xzvf /tmp/serverSpeeder/serverSpeederInstaller.tar.gz
+RUN tar xzvf /tmp/serverSpeeder/serverSpeederInstaller.tar.gz -C /tmp/serverSpeeder/
 RUN chmod -R +x /tmp/serverSpeeder/
 
 # Default Port
