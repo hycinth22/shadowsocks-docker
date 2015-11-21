@@ -52,6 +52,6 @@ do
 done
 
 # startup ssh daemon
-/run.sh &
+bash /run.sh &
 
 python $ss_dir/shadowsocks/server.py -c $config_file
