@@ -39,7 +39,7 @@ Default Configuration:
 
 Custom Configuration:
 
-    docker run -it --name ssr -e "-p yourPort -k youPassWord -m YourMethod" ik:ssr
+    docker run -it --name ssr -e "EXT_PARMS=-p yourPort -k youPassWord -m YourMethod" ik:ssr
 
 Custom Configuration File:
 
