@@ -14,12 +14,12 @@ A docker image of breakwa11/shadowsocks, based on Ubuntu 14.04
 
 If you want to use *chacha20* encrypt method, please install [*libsodium*](https://download.libsodium.org/libsodium/releases/)
 
-Besides, Your can your configuration file via mounting
+Besides, You can use your own configuration file via mounting
 Configuration File Path: `/etc/shadowsocks.json`
 
 # Getting Started
 
-1. Chnage to work directory
+1. Change to work directory
 
     cd /path/to/the/repo
 
