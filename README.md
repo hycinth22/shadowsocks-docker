@@ -25,7 +25,7 @@ Configuration File Path: `/etc/shadowsocks.json`
 
 2. Clone the repo
 
-    git clone https://github.com/inkedawn/shadowsocks-docker .
+    git clone https://github.com/sinoaube/shadowsocks-docker .
 
 3. Build the image
 
