@@ -9,8 +9,8 @@ A docker image of breakwa11/shadowsocks, based on Ubuntu 14.04
   + -k <password>       shadowsocks password, default: 123456
   + -m <method>         shadowsocks encrypt method, default: rc4-md5
   + -t <timeout>        shadowsocks timeout seconds, default: 300
-  + -o <obfs>           shadowsocks timeout seconds, default: plain
-  + -w <workers>        shadowsocks timeout seconds, default: 1
+  + -o <obfs>           shadowsocks obfs option, default: plain
+  + -w <workers>        shadowsocks number of workers, available on Unix/Linux, default: 1
 
 If you want to use *chacha20* encrypt method, please install [*libsodium*](https://download.libsodium.org/libsodium/releases/)
 
@@ -25,7 +25,7 @@ Configuration File Path: `/etc/shadowsocks.json`
 
 2. Clone the repo
 
-    git clone https://github.com/sinoaube/shadowsocks-docker .
+    git clone https://github.com/pastral1024/shadowsocks-docker .
 
 3. Build the image
 

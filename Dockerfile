@@ -3,7 +3,7 @@
 
 FROM tutum/ubuntu:trusty
 
-MAINTAINER inkedawn <inkedawn@gmail.com>
+MAINTAINER pastral1024 <pastral1024@gmail.com>
 
 RUN apt-get update && \
     apt-get install -y wget m2crypto git python2.7-minimal

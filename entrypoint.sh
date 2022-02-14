@@ -46,7 +46,7 @@ do
              e) cmds=$OPTARG
                 ;;
              ?)
-                echo "unkonwn argument"
+                echo "unkonwn argument $arg"
                 exit 1
         esac
 done
